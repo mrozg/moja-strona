@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WESOŁYCH ŚWIĄT</title>
+    <link rel="stylesheet" href="strona_wyglad.css">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <section id="sekcja-startowa" class="sekcja aktywna">
+        <div class="container">
+            <p class="opis">Kliknij przycisk, aby otworzyć prezent</p>
+                <button id="glowny-przycisk" class="duzy-przycisk">
+                    <span class="tekst-przycisku">WESOŁYCH ŚWIĄT!</span>
+                </button>
+        </div>
+        <div class="lewy-dolny"> 
+            <img src="C:\Users\malgo\Documents\moj%20projekt\obrazy\choinka.png"
+                width="200" 
+                height="300"
+                class="responsywny-obrazek">
+            </div>
+                <div class="prawy-dolny">
+                <img src="C:\Users\malgo\Documents\moj%20projekt\obrazy\santa.png"
+                width="300" 
+                height="200"
+                class="responsywny-obrazek">
+                </div>
+                <div class="nad-przyciskiem">
+                    <img src="C:\Users\malgo\Documents\moj%20projekt\obrazy\prezenty.png"
+                    width="300"
+                    height="150"
+                    class="responsywny-obrazek">
+                </div>
+        
+    </section>
+    
+     <section id="sekcja-druga" class="sekcja ukryta">
+        <div class="container">
+            <button id="powrot-przycisk" class="maly-przycisk">
+                <i class="fas fa-arrow-left"></i> Powrót
+            </button>
+
+             <div class="karty-container">
+                <div class="karta">
+                    <div class="karta-obraz"></div>
+                    <img src="C:\Users\malgo\Documents\moj projekt\obrazy\swiatla.png">
+                    <h2>Ho Ho Ho!</h2>
+                    <p>Niech te Święta będą pełne ciepła, miłości i smaku - zarówno w sercu, jak i w kieliszku. Wesołych i radosnych chwil przy świątecznym stole!</p>
+                </div>
+        </div>
+     </section>
+    <script>
+    // TWORZENIE ŚNIEŻEK
+        function tworzSniezki(ilosc = 100) {
+            const body = document.body;
+            
+            for (let i = 0; i < ilosc; i++) {
+                // Tworzymy śnieżkę
+                const sniezka = document.createElement('div');
+                sniezka.classList.add('sniezka');
+                
+                // Losowe właściwości
+                const size = Math.random() * 10 + 5; // 5-15px
+                const left = Math.random() * 100; // 0-100% szerokości
+                const duration = Math.random() * 10 + 5; // 5-15 sekund
+                const delay = Math.random() * 5; // 0-5 sekund opóźnienia
+                
+                // Ustawiamy style
+                sniezka.style.width = `${size}px`;
+                sniezka.style.height = `${size}px`;
+                sniezka.style.left = `${left}%`;
+                sniezka.style.top = `-${size}px`;
+                sniezka.style.animationDuration = `${duration}s`;
+                sniezka.style.animationDelay = `${delay}s`;
+                
+                // Dodajemy cień dla efektu 3D
+                sniezka.style.boxShadow = `
+                    inset 0 0 5px rgba(255,255,255,0.8),
+                    0 0 10px rgba(255,255,255,0.5)
+                `;
+                
+                // Dodajemy do body
+                body.appendChild(sniezka);
+            }
+        }
+        
+        // Startujemy śnieżki po załadowaniu strony
+        window.addEventListener('load', () => {
+            tworzSniezki(150); // 150 śnieżek
+        });
+        
+
+// OBSŁUGA KLIKNIĘCIA PRZYCISKU
+const glownyPrzycisk = document.getElementById('glowny-przycisk');
+const sekcjaStartowa = document.getElementById('sekcja-startowa');
+const sekcjaDruga = document.getElementById('sekcja-druga');
+const powrotPrzycisk = document.getElementById('powrot-przycisk');
+
+// 1. Kliknięcie głównego przycisku
+glownyPrzycisk.addEventListener('click', function() {
+    // Efekt wizualny kliknięcia
+    this.classList.add('clicked');
+    
+    // Opóźnij przejście dla lepszego efektu
+    setTimeout(() => {
+        // Ukryj pierwszą sekcję
+        sekcjaStartowa.style.transform = 'translateY(-100vh)';
+        sekcjaStartowa.style.opacity = '0';
+        
+        // Pokaż drugą sekcję
+        sekcjaDruga.classList.remove('ukryta');
+        sekcjaDruga.style.transform = 'translateY(0)';
+        
+        // Dodaj płynne pojawianie się
+        setTimeout(() => {
+            sekcjaDruga.style.opacity = '1';
+            
+            // Pokaż animowane elementy w drugiej sekcji
+            document.querySelectorAll('.karta').forEach(el => {
+                el.style.animationPlayState = 'running';
+            });
+        }, 300);
+
+        window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // płynne przewijanie
+    });
+        
+        // Usuń klasę clicked po animacji
+        this.classList.remove('clicked');
+    }, 500);
+});
+
+// 2. Kliknięcie przycisku powrotu
+powrotPrzycisk.addEventListener('click', function() {
+    // Ukryj drugą sekcję
+    sekcjaDruga.style.transform = 'translateY(100vh)';
+    sekcjaDruga.style.opacity = '0';
+    
+    setTimeout(() => {
+        // Pokaż ponownie pierwszą sekcję
+        sekcjaDruga.classList.add('ukryta');
+        sekcjaStartowa.style.transform = 'translateY(0)';
+        sekcjaStartowa.style.opacity = '1';
+        
+        // Zresetuj animację przycisku
+        glownyPrzycisk.style.animation = 'none';
+        setTimeout(() => {
+            glownyPrzycisk.style.animation = 'slide-in-button 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) both, pulse-glow 3s infinite 2.5s';
+        }, 10);
+    }, 500);
+});
+
+// 6. Inicjalizacja - zatrzymaj animacje drugiej sekcji na starcie
+window.addEventListener('load', function() {
+    document.querySelectorAll('#sekcja-druga .karta, #sekcja-druga .animowany-tytul, #sekcja-druga .formularz').forEach(el => {
+        el.style.animationPlayState = 'paused';
+    });
+});
+
+
+</script>
+</body>
+</html>

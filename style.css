@@ -56,6 +56,7 @@ body {
     /* -100vh = 100% powyżej ekranu (nad) */
     transform: translateY(-100vh);
     opacity: 0;
+    visibility: hidden;
     transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1),
                 opacity 0.8s ease;
 }
@@ -77,6 +78,7 @@ body {
 #sekcja-startowa.ukryta {
     transform: translateY(100vh) !important; /* zjeżdża w dół */
     opacity: 0 !important;
+    visibility: hidden;
 }
 
 /* KONTEJNER */

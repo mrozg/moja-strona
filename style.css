@@ -44,7 +44,6 @@ body {
 }
 
 #sekcja-druga {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -55,7 +54,6 @@ body {
     
     /* ZMIANA: translateY(-100vh) zamiast translateY(100vh) */
     /* -100vh = 100% powyżej ekranu (nad) */
-    transform: translateY(-100vh);
     opacity: 0;
     visibility: hidden;
     transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1),
@@ -66,9 +64,6 @@ body {
 #sekcja-druga.pokazana {
     transform: translateY(0) !important; /* zsuwa się w dół do widocznej pozycji */
     opacity: 1 !important;
-    overflow-y: scroll !important;
-    /*pointer-events: auto !important;*/
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -94,7 +89,7 @@ body {
 .opis {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
-    position: absolute;
+    position: fixed;
     display: flex;
     color: white;
     top: 40%;
@@ -131,7 +126,6 @@ p {
     left: 15%;
     width: 23vw;
     height: 27vw;
-    transform: translate(-50%, 50%);
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
     pointer-events: none;
@@ -143,7 +137,6 @@ p {
     right: 5%;
     width: 34vw;
     height: 24vw;
-    transform: translate(20%, 20%);
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
     pointer-events: none;
@@ -156,7 +149,6 @@ p {
     right: 25%;
     width: 45vw;
     height: 20vw;
-    transform: translate(50%, -5%);
     object-fit: cover;
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
@@ -239,12 +231,6 @@ p {
     
     /* TRANSITION DLA HOVER */
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    
-    /* POZYCJONOWANIE - wycentruj */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     
     /* RESZTA */
     overflow: hidden;
@@ -533,3 +519,78 @@ p {
     visibility: visible !important;
     transform: translateY(0) !important;
 }
+
+#sekcja-startowa {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    overflow: hidden;
+}
+
+.nad-przyciskiem {
+    position: relative !important;
+    width: 55vw !important;
+    max-width: 350px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    pointer-events: none;
+}
+
+.opis {
+    position: relative !important;
+    margin-bottom: 1rem;
+    transform: none !important;
+    text-align: center !important;
+    font-size: 1.25rem;
+    width: 90%;
+}
+
+.duzy-przycisk {
+    position: relative !important;
+    transform: none !important;
+    left: unset !important;
+    top: unset !important;
+    margin: 0 auto 1rem auto;
+    width: 75vw;
+    max-width: 350px;
+    padding: 18px;
+}
+
+.lewy-dolny,
+.prawy-dolny {
+    position: absolute;
+    bottom: 3%;
+    width: 30vw !important;
+    max-width: 150px;
+    height: auto !important;
+}
+
+.lewy-dolny {
+    left: 5%;
+}
+
+.prawy-dolny {
+    right: 5%;
+}
+
+#sekcja-druga {
+    height: 100vh;
+    overflow-y: auto !important;
+    padding-top: 4rem; /* odsunięcie treści pod przyciskiem */
+}
+
+.karty-container {
+    margin-top: 2rem;
+}
+
+.maly-przycisk {
+    z-index: 9999;
+    position: sticky; 
+    top: 1rem;
+}
+

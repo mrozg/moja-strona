@@ -104,12 +104,11 @@ glownyPrzycisk.addEventListener('click', function() {
         sekcjaStartowa.style.opacity = '0';
         
         // Pokaż drugą sekcję
-        sekcjaDruga.classList.remove('ukryta');
+        sekcjaStartowa.classList.add("ukryta");
+        sekcjaDruga.classList.remove("ukryta");
         sekcjaDruga.classList.add("pokazana");
 
         setTimeout(() => {
-            sekcjaDruga.classList.remove("ukryta");
-
             // Pokaż animowane elementy w drugiej sekcji
             document.querySelectorAll('.karta').forEach(el => {
                 el.style.animationPlayState = 'running';
@@ -135,7 +134,8 @@ powrotPrzycisk.addEventListener('click', function() {
     setTimeout(() => {
         // Pokaż ponownie pierwszą sekcję
         sekcjaDruga.classList.remove("pokazana");
-        sekcjaDruga.classList.add('ukryta');
+        sekcjaDruga.classList.add("ukryta");
+        sekcjaStartowa.classList.remove("ukryta");
         sekcjaStartowa.style.transform = 'translateY(0)';
         sekcjaStartowa.style.opacity = '1';
         const przycisk = document.querySelector('.duzy-przycisk');

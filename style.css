@@ -100,7 +100,6 @@ p {
     left: 27%;
     width: clamp(70px, 9vw, 130px);
     height: clamp(70px, 9vw, 130px);
-    border-radius: 50%;
     object-fit: cover;
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
@@ -112,7 +111,6 @@ p {
     right: 35%;
     width: clamp(70px, 9vw, 130px);
     height: clamp(70px, 9vw, 130px);
-    border-radius: 50%;
     object-fit: cover;
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
@@ -124,7 +122,6 @@ p {
     right: 53%;
     width: clamp(60px, 7vw, 110px);
     height: clamp(60px, 7vw, 110px);
-    border-radius: 50%;
     object-fit: cover;
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
@@ -537,6 +534,9 @@ body {
     
     /* TEKST NAD PRZYCISKIEM - popraw pozycję */
     .zawartosc h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        color: white;
         position: relative !important;
         margin-top: 40px !important;
         margin-bottom: 150px !important; /* Zwiększ aby zrobić miejsce na zdjęcie nad przyciskiem */
@@ -606,11 +606,6 @@ body {
         height: 60px !important;
         margin: 10px !important;
     }
-    
-    /* Ukryj jedno zdjęcie jeśli za dużo */
-    .nad-przyciskiem {
-        display: none;
-    }
 }
 
 /* ============================== */
@@ -633,4 +628,95 @@ body {
         max-width: 100% !important;
         height: auto !important;
     }
+}
+
+/* ========== POPRAWKI UKŁADU ========== */
+@media (max-width: 768px) {
+    /* UKŁAD: tekst → zdjęcie → przycisk */
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        padding-top: 40px;
+    }
+    
+    /* TEKST - biały, mniejszy, na górze */
+    .zawartosc h1 {
+        color: white !important;
+        font-size: 1.6rem !important;
+        text-align: center;
+        margin: 0 0 30px 0 !important;
+        padding: 0 20px;
+        order: 1;
+        width: 100%;
+    }
+    
+    /* ZDJĘCIE NAD PRZYCISKIEM - nieprzycięte */
+    .nad-przyciskiem {
+        width: 180px !important;
+        height: 180px !important;
+        object-fit: contain !important; /* NIE przycina */
+        margin: 0 0 30px 0 !important;
+        order: 2;
+        border: none !important;
+        display: block !important;
+    }
+    
+    /* PRZYCISK - duży, na środku */
+    .duzy-przycisk {
+        width: 90% !important;
+        max-width: 400px;
+        padding: 25px 40px !important;
+        font-size: 1.4rem !important;
+        margin: 0 auto 40px auto !important;
+        display: block;
+        order: 3;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+    }
+    
+    /* ZDJĘCIA W DOLNYCH ROGACH */
+    .lewy-dolny, .prawy-dolny {
+        width: 100px !important;
+        height: 100px !important;
+        object-fit: contain !important;
+        border: none !important;
+        position: fixed;
+        bottom: 20px;
+    }
+    
+    .lewy-dolny {
+        left: 15px;
+    }
+    
+    .prawy-dolny {
+        right: 15px;
+    }
+    
+    /* UKRYJ STARĄ POZYCJĘ ZDJĘĆ */
+    .zdjecia-dekoracyjne {
+        display: none;
+    }
+
+    .zdjecia-dekoracyjne {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    margin: 20px 0 40px 0 !important;
+    order: 2 !important;
+}
+
+.nad-przyciskiem {
+    order: 1 !important;
+    margin-bottom: 20px !important;
+}
+
+.lewy-dolny, .prawy-dolny {
+    order: 2 !important;
+}
 }

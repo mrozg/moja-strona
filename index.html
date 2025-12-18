@@ -136,7 +136,8 @@ powrotPrzycisk.addEventListener('click', function() {
         sekcjaDruga.classList.add('ukryta');
         sekcjaStartowa.style.transform = 'translateY(0)';
         sekcjaStartowa.style.opacity = '1';
-        
+        const przycisk = document.querySelector('.duzy-przycisk');
+        przycisk.style.pointerEvents = 'auto';
         // Zresetuj animację przycisku
         glownyPrzycisk.style.animation = 'none';
         setTimeout(() => {

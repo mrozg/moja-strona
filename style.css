@@ -108,31 +108,31 @@ p {
     }
 
 .lewy-dolny {
-    position: fixed;  /* lub absolute */
+    position: absolute;  /* lub absolute */
     bottom: 22%;
     left: 27%;
-    width: clamp(70px, 9vw, 130px);
-    height: clamp(70px, 9vw, 130px);
+    width: 20%;
+    height: 30%;
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
 }
 
 .prawy-dolny {
-    position: fixed;  /* lub absolute */
+    position: absolute;  /* lub absolute */
     bottom: 13%;
     right: 35%;
-    width: clamp(70px, 9vw, 130px);
-    height: clamp(70px, 9vw, 130px);
+    width: 30%;
+    height: 20%;
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
 }
 
 .nad-przyciskiem {
-    position: fixed;  /* lub absolute */
+    position: absolute;  /* lub absolute */
     top: 16%;
     right: 53%;
-    width: clamp(60px, 7vw, 110px);
-    height: clamp(60px, 7vw, 110px);
+    width: 40%;
+    height: 20%;
     /*object-fit: cover;*/
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */

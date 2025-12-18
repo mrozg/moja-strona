@@ -380,188 +380,91 @@ body {
 }
 
 /* ============================== */
-/* TELEFON (max-width: 768px) - NAJWAŻNIEJSZE */
+/* TELEFON (max-width: 768px) */
 /* ============================== */
 @media (max-width: 768px) {
-    /* RESET POZYCJONOWANIA DLA MOBILKI */
+    /* RESET LAYOUTU */
     body {
         padding: 0;
         margin: 0;
         width: 100vw;
         overflow-x: hidden;
-    }
-    
-    /* KONTENER GŁÓWNY - NOWY */
-    .mobile-container {
-        position: relative;
-        width: 100%;
-        min-height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 20px 15px;
-        overflow: hidden;
+        justify-content: flex-start;
+        min-height: 100vh;
+        padding-top: 40px;
     }
     
-    /* NAGŁÓWEK - naprawa pozycji */
-    .zawartosc h2 {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        font-size: 1.8rem !important;
+    /* TEKST H1 - biały, mniejszy, na samej górze */
+    .zawartosc h1 {
+        color: white !important;
+        font-size: 1.5rem !important;
         text-align: center;
-        margin: 20px 0 30px 0 !important;
-        padding: 0 15px;
+        margin: 10px 0 30px 0 !important;
+        padding: 0 20px;
         width: 100%;
-        order: 1; /* Pierwszy element */
+        font-weight: normal;
     }
     
-    /* PRZYCISK GŁÓWNY - całkowicie przepisany */
+    /* ZDJĘCIA - duże, bez obramowania */
+    .zdjecia-dekoracyjne {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0 0 30px 0;
+    }
+    
+    .nad-przyciskiem {
+        width: 200px !important;
+        height: 200px !important;
+        object-fit: contain !important;
+        margin-bottom: 25px !important;
+        border: none !important;
+        display: block !important;
+    }
+    
+    .lewy-dolny, .prawy-dolny {
+        width: 130px !important;
+        height: 130px !important;
+        object-fit: contain !important;
+        border: none !important;
+        display: inline-block !important;
+        margin: 0 10px !important;
+    }
+    
+    /* PRZYCISK - duży, na środku, dopasowany */
     .duzy-przycisk {
         position: relative !important;
         top: auto !important;
         left: auto !important;
         transform: none !important;
-        min-width: 90% !important;
-        width: 90% !important;
+        min-width: 85% !important;
+        width: 85% !important;
         max-width: 400px;
-        padding: 20px 30px !important;
-        font-size: 1.2rem !important;
+        padding: 22px 35px !important;
+        font-size: 1.3rem !important;
         letter-spacing: 1px !important;
-        margin: 20px auto !important;
+        margin: 0 auto 40px auto !important;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
-        order: 2; /* Drugi element */
+        gap: 8px;
+        border-radius: 80px;
         
         /* Reset hover dla mobile */
         transform: none !important;
-        padding: 20px 30px !important;
+        padding: 22px 35px !important;
     }
     
     .duzy-przycisk:hover {
         transform: scale(1.03) !important;
-        padding: 22px 32px !important;
+        padding: 24px 37px !important;
     }
     
-    /* TEKST POD PRZYCISKIEM */
-    .zawartosc p {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        font-size: 1rem !important;
-        text-align: center;
-        padding: 0 15px;
-        margin: 20px 0 30px 0 !important;
-        width: 100%;
-        order: 3; /* Trzeci element */
-    }
-    
-    /* KARTY - jedna pod drugą */
-    .karty-container {
-        position: relative !important;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        margin: 30px 0 !important;
-        width: 100%;
-        order: 4; /* Czwarty element */
-    }
-    
-    .karta {
-        width: 90% !important;
-        max-width: 350px;
-        padding: 25px 20px;
-        margin: 0 auto;
-        position: relative !important;
-    }
-    
-    /* ZDJĘCIA POZYCJONOWANE - przerób na relative */
-    .lewy-dolny, .prawy-dolny, .nad-przyciskiem {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        width: 80px !important;
-        height: 80px !important;
-        margin: 15px !important;
-        display: inline-block;
-        transform: none !important;
-        border: none !important;
-        box-shadow: none !important;
-        outline: none !important;
-    }
-
-    * ZWIĘKSZ ZDJĘCIA */
-    .lewy-dolny, .prawy-dolny {
-        width: 120px !important;
-        height: 120px !important;
-    }
-    
-    .nad-przyciskiem {
-        width: 140px !important;
-        height: 140px !important;
-    }
-    
-    /* USTAW ZDJĘCIA NA SWOJE MIEJSCA */
-    .lewy-dolny {
-        position: fixed !important;
-        bottom: 30px !important;
-        left: 20px !important;
-        top: auto !important;
-        margin: 0 !important;
-    }
-    
-    .prawy-dolny {
-        position: fixed !important;
-        bottom: 30px !important;
-        right: 20px !important;
-        top: auto !important;
-        margin: 0 !important;
-    }
-    
-    .nad-przyciskiem {
-        position: absolute !important;
-        top: 100px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        margin: 0 !important;
-    }
-    
-    /* TEKST NAD PRZYCISKIEM - popraw pozycję */
-    .zawartosc h1 {
-        font-family: 'Poppins', sans-serif;
-        font-size: 1rem;
-        color: white;
-        position: relative !important;
-        margin-top: 40px !important;
-        margin-bottom: 150px !important; /* Zwiększ aby zrobić miejsce na zdjęcie nad przyciskiem */
-    }
-    
-    /* Kontener dla zdjęć dekoracyjnych */
-    .zdjecia-dekoracyjne {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-        margin: 20px 0;
-        order: 5; /* Piąty element */
-        width: 100%;
-    }
-    
-    /* TŁO - poprawa */
-    body::before,
-    body::after {
-        background-size: cover !important;
-        background-position: center !important;
-        background-attachment: scroll !important; /* Fixed nie działa dobrze na mobile */
-    }
-    
-    /* PRZYCISK POWROTU */
+    /* Pozostałe elementy */
     .maly-przycisk {
         position: fixed;
         top: 15px;
@@ -569,6 +472,21 @@ body {
         z-index: 1000;
         padding: 12px 20px;
         font-size: 0.9rem;
+    }
+    
+    .karty-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        margin: 30px 0 !important;
+        width: 100%;
+    }
+    
+    .karta {
+        width: 90% !important;
+        max-width: 350px;
+        padding: 25px 20px;
+        margin: 0 auto;
     }
 }
 
@@ -630,93 +548,3 @@ body {
     }
 }
 
-/* ========== POPRAWKI UKŁADU ========== */
-@media (max-width: 768px) {
-    /* UKŁAD: tekst → zdjęcie → przycisk */
-    body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        min-height: 100vh;
-        padding-top: 40px;
-    }
-    
-    /* TEKST - biały, mniejszy, na górze */
-    .zawartosc h1 {
-        color: white !important;
-        font-size: 1.6rem !important;
-        text-align: center;
-        margin: 0 0 30px 0 !important;
-        padding: 0 20px;
-        order: 1;
-        width: 100%;
-    }
-    
-    /* ZDJĘCIE NAD PRZYCISKIEM - nieprzycięte */
-    .nad-przyciskiem {
-        width: 180px !important;
-        height: 180px !important;
-        object-fit: contain !important; /* NIE przycina */
-        margin: 0 0 30px 0 !important;
-        order: 2;
-        border: none !important;
-        display: block !important;
-    }
-    
-    /* PRZYCISK - duży, na środku */
-    .duzy-przycisk {
-        width: 90% !important;
-        max-width: 400px;
-        padding: 25px 40px !important;
-        font-size: 1.4rem !important;
-        margin: 0 auto 40px auto !important;
-        display: block;
-        order: 3;
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-    }
-    
-    /* ZDJĘCIA W DOLNYCH ROGACH */
-    .lewy-dolny, .prawy-dolny {
-        width: 100px !important;
-        height: 100px !important;
-        object-fit: contain !important;
-        border: none !important;
-        position: fixed;
-        bottom: 20px;
-    }
-    
-    .lewy-dolny {
-        left: 15px;
-    }
-    
-    .prawy-dolny {
-        right: 15px;
-    }
-    
-    /* UKRYJ STARĄ POZYCJĘ ZDJĘĆ */
-    .zdjecia-dekoracyjne {
-        display: none;
-    }
-
-    .zdjecia-dekoracyjne {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 20px !important;
-    margin: 20px 0 40px 0 !important;
-    order: 2 !important;
-}
-
-.nad-przyciskiem {
-    order: 1 !important;
-    margin-bottom: 20px !important;
-}
-
-.lewy-dolny, .prawy-dolny {
-    order: 2 !important;
-}
-}

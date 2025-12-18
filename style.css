@@ -36,6 +36,7 @@ body {
     width: 100%;
     z-index: 10;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    visibility: hidden !important;
 }
 
 #sekcja-startowa {
@@ -78,7 +79,7 @@ body {
 #sekcja-startowa.ukryta {
     transform: translateY(100vh) !important; /* zjeżdża w dół */
     opacity: 0 !important;
-    visibility: hidden;
+    visibility: hidden !important;
 }
 
 /* KONTEJNER */
@@ -396,56 +397,87 @@ p {
     margin-bottom: 20px;
 }
 
-/* ============================== */
-/* TABLET (max-width: 1024px) */
-/* ============================== */
-/*@media (max-width: 1024px) {
-    .duzy-przycisk {
-        min-width: 400px;
-        padding: 30px 80px;
-        font-size: 1.8rem;
-    }
-    
-    .zawartosc {
-        padding: 30px 20px;
-    }
-}*/
+.duzy-przycisk {
+    pointer-events: auto !important;
+}
 
-/* ============================== */
-/* MAŁY TELEFON (max-width: 480px) */
-/* ============================== */
-/*@media (max-width: 480px) {
-    .mobile-container {
-        padding: 15px 10px;
+.zdjecia-dekoracyjne img {
+    pointer-events: none !important; /* obrazki nie blokują kliknięć */
+}
+
+@media (max-width: 480px) {
+
+    .nad-przyciskiem {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 55vw;
+        height: auto;
     }
-    
+
+    .lewy-dolny {
+        bottom: 5%;
+        left: 5%;
+        width: 35vw;
+        height: auto;
+    }
+
+    .prawy-dolny {
+        bottom: 5%;
+        right: 5%;
+        width: 38vw;
+        height: auto;
+    }
+
     .duzy-przycisk {
-        font-size: 1.1rem !important;
-        padding: 18px 25px !important;
-        min-width: 85% !important;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 70vw !important;
+        padding: 20px;
+        font-size: 1.4rem;
     }
-    
-    .zawartosc h2 {
-        font-size: 1.5rem !important;
-        margin: 15px 0 20px 0 !important;
+}
+
+@media (max-width: 768px) {
+
+    .nad-przyciskiem {
+        top: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 45vw;
     }
-    
-    .zawartosc p {
-        font-size: 0.95rem !important;
-        margin: 15px 0 25px 0 !important;
+
+    .lewy-dolny {
+        bottom: 8%;
+        left: 8%;
+        width: 28vw;
     }
-    
-    .karta {
-        width: 95% !important;
-        padding: 20px 15px;
+
+    .prawy-dolny {
+        bottom: 8%;
+        right: 8%;
+        width: 32vw;
     }
-    
-    .lewy-dolny, .prawy-dolny, .nad-przyciskiem {
-        width: 60px !important;
-        height: 60px !important;
-        margin: 10px !important;
-    }
-}*/
+}
+
+#sekcja-druga {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* płynny scroll na iOS */
+    height: 100vh; 
+}
+
+#sekcja-druga.ukryta {
+    pointer-events: none;
+}
+
+/* po pokazaniu sekcji */
+#sekcja-druga.pokazana {
+    pointer-events: auto;
+    overflow-y: auto;
+}
 
 /* ============================== */
 /* DODATKOWE FIXY SPECJALNE */

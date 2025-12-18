@@ -28,7 +28,7 @@
         </div>
     </section>
     
-     <section id="sekcja-druga" class="sekcja ukryta">
+     <section id="sekcja-druga" class="sekcja pokazana">
         <div class="container">
             <button id="powrot-przycisk" class="maly-przycisk">
                 <i class="fas fa-arrow-left"></i> Powrót
@@ -105,15 +105,11 @@ glownyPrzycisk.addEventListener('click', function() {
         
         // Pokaż drugą sekcję
         sekcjaDruga.classList.remove('ukryta');
-        sekcjaDruga.style.transform = 'translateY(0)';
-        /*document.body.style.overflow = 'auto';*/
-        /*document.documentElement.style.overflow = 'auto';
-        document.body.style.overflow = 'auto';
-        document.body.style.height = 'auto';*/
-        // Dodaj płynne pojawianie się
+        sekcjaDruga.classList.add("pokazana");
+
         setTimeout(() => {
-            sekcjaDruga.style.opacity = '1';
-            
+            sekcjaDruga.classList.remove("ukryta");
+
             // Pokaż animowane elementy w drugiej sekcji
             document.querySelectorAll('.karta').forEach(el => {
                 el.style.animationPlayState = 'running';
@@ -138,6 +134,7 @@ powrotPrzycisk.addEventListener('click', function() {
     
     setTimeout(() => {
         // Pokaż ponownie pierwszą sekcję
+        sekcjaDruga.classList.remove("pokazana");
         sekcjaDruga.classList.add('ukryta');
         sekcjaStartowa.style.transform = 'translateY(0)';
         sekcjaStartowa.style.opacity = '1';

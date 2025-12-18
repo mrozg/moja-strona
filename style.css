@@ -443,29 +443,70 @@ p {
 
 @media (max-width: 768px) {
 
+    #sekcja-startowa {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: center;
+        padding-top: 20px;
+        position: relative;
+    }
+
     .nad-przyciskiem {
-        top: 8%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 45vw;
+        position: relative !important;
+        width: 60vw !important;
+        height: auto !important;
+        margin: 0 auto 10px auto !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        pointer-events: none;
+    }
+
+    .opis {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 5px auto 10px auto !important;
+        font-size: 1.2rem !important;
+        text-align: center !important;
+        width: 90%;
+    }
+
+    .duzy-przycisk {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 75vw !important;
+        min-width: auto !important;
+        margin: 15px auto !important;
+        padding: 20px !important;
+        font-size: 1.3rem !important;
+        display: block;
+    }
+
+    .lewy-dolny,
+    .prawy-dolny {
+        position: absolute;
+        bottom: 3%;
+        width: 30vw !important;
+        height: auto !important;
     }
 
     .lewy-dolny {
-        bottom: 8%;
-        left: 8%;
-        width: 28vw;
+        left: 3%;
     }
 
     .prawy-dolny {
-        bottom: 8%;
-        right: 8%;
-        width: 32vw;
+        right: 3%;
     }
 }
 
 #sekcja-druga {
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch; /* płynny scroll na iOS */
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important; /* płynny scroll na iOS */
     height: 100vh; 
 }
 
@@ -479,80 +520,16 @@ p {
     overflow-y: auto;
 }
 
-/* ============================== */
-/* DODATKOWE FIXY SPECJALNE */
-/* ============================== */
-/*@media (max-width: 768px) {*/
-    /* Jeśli masz element z klasą .container - daj mu max-width */
-    /*.container, .zawartosc, section, main {
-        max-width: 100vw !important;
-        overflow-x: hidden !important;
-    }*/
-    
-    /* Reset wszystkich transformacji które mogą przeszkadzać */
-    /**[style*="transform"]:not(.duzy-przycisk):not(.maly-przycisk) {
-        transform: none !important;
-    }*/
-    
-    /* Upewnij się że nic nie wychodzi poza ekran */
-    /*img, .karta, .duzy-przycisk {
-        max-width: 100% !important;
-        height: auto !important;
-    }
-}*/
+/* ukryta sekcja */
+.ukryta {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100vh);
+}
 
-/* ========== OSTATNIE POPRAWKI ========== */
-/*@media (max-width: 768px) {*/
-    /* ZDJĘCIA - duże, bez obramowania */
-    /*.zdjecia-dekoracyjne {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        width: 100% !important;
-        margin: 0 0 30px 0 !important;
-    }
-    
-    .nad-przyciskiem {
-        width: 220px !important;
-        height: 220px !important;
-        object-fit: contain !important;
-        margin-bottom: 25px !important;
-        border: none !important;
-        display: block !important;
-    }
-    
-    .lewy-dolny, .prawy-dolny {
-        width: 150px !important;
-        height: 150px !important;
-        object-fit: contain !important;
-        border: none !important;
-        display: inline-block !important;
-        margin: 0 15px !important;
-    }*/
-    
-    /* PRZYCISK - duży, na środku */
-    /*.duzy-przycisk {
-        width: 90% !important;
-        max-width: 350px !important;
-        min-width: auto !important;
-        padding: 25px 30px !important;
-        font-size: 1.3rem !important;
-        margin: 0 auto 50px auto !important;
-        display: flex !important;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        text-align: center;
-        white-space: normal !important;
-        word-wrap: break-word !important;
-    }
-    
-    /* .duzy-przycisk:hover {
-        transform: scale(1.02) !important;
-    }
-} */
+/* widoczna sekcja */
+.pokazana {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}

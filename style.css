@@ -6,6 +6,7 @@
 
 html {
     font-size: 16px; /* bazowy rozmiar dla rem */
+    overflow-x: hidden;
 }
 
 body {
@@ -13,6 +14,8 @@ body {
     font-size: 1rem;
     line-height: 1.5;
     overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
     background: linear-gradient(135deg, #27c304 0%, #0b7601 100%);
 }
 
@@ -93,6 +96,16 @@ p {
     font-size: 1.4rem;
     color: white;
 }
+
+.zawartosc h1 {
+    color: white !important;
+    font-size: 1.4rem !important;
+    text-align: center;
+    margin: 20px 0 25px 0 !important;
+    padding: 0 15px;
+    width: 100%;
+    font-weight: normal;
+    }
 
 .lewy-dolny {
     position: fixed;  /* lub absolute */
@@ -347,24 +360,6 @@ p {
 }
 
 /* ============================== */
-/* PODSTAWY RESPONSYWNOŚCI */
-/* ============================== */
-html {
-    font-size: 16px;
-    overflow-x: hidden;
-}
-
-body {
-    overflow-x: hidden;
-    position: relative;
-    min-height: 100vh;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-/* ============================== */
 /* TABLET (max-width: 1024px) */
 /* ============================== */
 @media (max-width: 1024px) {
@@ -439,17 +434,6 @@ body {
 
 /* ========== OSTATNIE POPRAWKI ========== */
 @media (max-width: 768px) {
-    /* TEKST H1 - biały, mały, na górze */
-    .zawartosc h1 {
-        color: white !important;
-        font-size: 1.4rem !important;
-        text-align: center;
-        margin: 20px 0 25px 0 !important;
-        padding: 0 15px;
-        width: 100%;
-        font-weight: normal;
-    }
-    
     /* ZDJĘCIA - duże, bez obramowania */
     .zdjecia-dekoracyjne {
         display: flex !important;

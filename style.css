@@ -349,54 +349,104 @@ p {
     margin-bottom: 20px;
 }
 
-/* ========== RESPONSYWNOŚĆ ========== */
-@media (max-width: 768px) {
-    /* Przycisk */
-    button, .maly-przycisk, .duzy-przycisk {
-        width: 90% !important;
-        max-width: 300px !important;
-        margin: 10px auto !important;
-        display: block !important;
-    }
-    
-    /* Zdjęcia */
-    img {
-        max-width: 100% !important;
-        height: auto !important;
-    }
-    
-    /* Tekst */
-    h1 { font-size: 1.8rem !important; }
-    h2 { font-size: 1.5rem !important; }
-    h3 { font-size: 1.2rem !important; }
-    
-    /* Kontenery */
-    .container, section, div {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-    
-    /* Flexbox/Grid naprawa */
-    .karty-container, .galeria {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+/* TABLET (max-width: 1024px) */
+/* ============================== */
+@media (max-width: 1024px) {
+    .duzy-przycisk {
+        min-width: 400px;
+        padding: 30px 80px;
+        font-size: 1.8rem;
     }
 }
 
-/* ========== DUŻE TELEFONY (425px - 768px) ========== */
-@media (max-width: 425px) {
-    h1 {
-        font-size: 1.8rem !important;
-    }
-    
+/* ============================== */
+/* TELEFON (max-width: 768px) */
+/* ============================== */
+@media (max-width: 768px) {
+    /* PRZYCISK GŁÓWNY - dopasuj do ekranu */
     .duzy-przycisk {
-        padding: 15px 30px !important;
-        font-size: 1rem !important;
+        min-width: 90% !important; /* Prawie cała szerokość ekranu */
+        width: 90% !important;
+        padding: 25px 30px !important; /* Mniejszy padding */
+        font-size: 1.4rem !important; /* Mniejsza czcionka */
+        letter-spacing: 1px !important; /* Mniejsze odstępy liter */
+        flex-direction: column; /* Tekst i ikona w kolumnie */
+        gap: 10px !important;
+        transform: translate(-50%, -50%) !important; /* Usuń dodatkowe transformacje */
     }
     
-    /* Ukryj niektóre zdjęcia na małym ekranie */
-    .nad-przyciskiem {
-        display: none !important;
+    .duzy-przycisk:hover {
+        transform: translate(-50%, -50%) scale(1.05) !important; /* Prostszy efekt hover */
+        padding: 27px 33px !important;
+        letter-spacing: 2px !important;
+    }
+    
+    .duzy-przycisk .ikona {
+        font-size: 1.4rem; /* Mniejsza ikona */
+    }
+    
+    /* KARTY - jedna pod drugą */
+    .karty-container {
+        flex-direction: column; /* Ułóż karty w kolumnie */
+        align-items: center; /* Wyśrodkuj */
+        gap: 20px; /* Mniejsze odstępy */
+        margin: 30px 0; /* Mniejszy margines */
+    }
+    
+    .karta {
+        width: 90% !important; /* Karta zajmuje większość szerokości */
+        padding: 25px 20px; /* Mniejszy padding wewnętrzny */
+        margin: 0 auto; /* Wyśrodkowanie */
+    }
+    
+    /* TEKST GŁÓWNY - popraw czytelność */
+    .zawartosc h2 {
+        font-size: 1.8rem !important; /* Mniejszy nagłówek */
+        padding: 0 15px; /* Padding po bokach */
+        text-align: center;
+    }
+    
+    .zawartosc p {
+        font-size: 1rem; /* Mniejszy tekst */
+        padding: 0 15px;
+        text-align: center;
+    }
+    
+    /* PRZYCISK POWROTU - większy na dotyk */
+    .maly-przycisk {
+        padding: 15px 20px; /* Większy obszar dotyku */
+        font-size: 1rem;
+    }
+}
+
+/* ============================== */
+/* MAŁY TELEFON (max-width: 480px) */
+/* ============================== */
+@media (max-width: 480px) {
+    .duzy-przycisk {
+        font-size: 1.2rem !important;
+        padding: 20px 25px !important;
+        min-width: 85% !important;
+        border-radius: 60px; /* Zaokrąglenie dopasowane do rozmiaru */
+    }
+    
+    .duzy-przycisk .tekst-przycisku {
+        font-size: 1.1rem; /* Tekst w przycisku */
+    }
+    
+    .karta {
+        width: 95% !important;
+        padding: 20px 15px;
+    }
+    
+    .zawartosc h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 15px;
+    }
+    
+    /* Jeśli masz zdjęcia pozycjonowane absolutnie - zmniejsz je */
+    .lewy-dolny, .prawy-dolny, .nad-przyciskiem {
+        width: 60px !important;
+        height: 60px !important;
     }
 }

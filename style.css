@@ -38,6 +38,10 @@ body {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
 
+#sekcja-startowa {
+    overflow: hidden;
+}
+
 #sekcja-druga {
     position: fixed;
     top: 0;
@@ -46,7 +50,7 @@ body {
     min-height: 100vh;
     background: linear-gradient(135deg, #27c304 0%, #0b7601 100%);
     z-index: 20;
-    overflow-y: auto;
+    overflow-y: scroll;
     
     /* ZMIANA: translateY(-100vh) zamiast translateY(100vh) */
     /* -100vh = 100% powyżej ekranu (nad) */
@@ -60,6 +64,14 @@ body {
 #sekcja-druga.pokazana {
     transform: translateY(0) !important; /* zsuwa się w dół do widocznej pozycji */
     opacity: 1 !important;
+    overflow-y: scroll !important;
+    pointer-events: auto !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch !important;
 }
 
 #sekcja-startowa.ukryta {
@@ -312,11 +324,18 @@ p {
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s;
     backdrop-filter: blur(10px);
+    z-index: 1001;
+    pointer-events: auto;
 }
 
 .maly-przycisk:hover {
     background: rgba(255,255,255,0.2);
     transform: translateX(-5px);
+}
+
+#sekcja-druga.pokazana *:not(.maly-przycisk) {
+    pointer-events: auto !important;
+    overflow-y: auto !important;
 }
 
 .karty-container {

@@ -349,6 +349,25 @@ p {
     margin-bottom: 20px;
 }
 
+/* ============================== */
+/* PODSTAWY RESPONSYWNOŚCI */
+/* ============================== */
+html {
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ============================== */
 /* TABLET (max-width: 1024px) */
 /* ============================== */
 @media (max-width: 1024px) {
@@ -357,65 +376,153 @@ p {
         padding: 30px 80px;
         font-size: 1.8rem;
     }
+    
+    .zawartosc {
+        padding: 30px 20px;
+    }
 }
 
 /* ============================== */
-/* TELEFON (max-width: 768px) */
+/* TELEFON (max-width: 768px) - NAJWAŻNIEJSZE */
 /* ============================== */
 @media (max-width: 768px) {
-    /* PRZYCISK GŁÓWNY - dopasuj do ekranu */
+    /* RESET POZYCJONOWANIA DLA MOBILKI */
+    body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    /* KONTENER GŁÓWNY - NOWY */
+    .mobile-container {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+        overflow: hidden;
+    }
+    
+    /* NAGŁÓWEK - naprawa pozycji */
+    .zawartosc h2 {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        font-size: 1.8rem !important;
+        text-align: center;
+        margin: 20px 0 30px 0 !important;
+        padding: 0 15px;
+        width: 100%;
+        order: 1; /* Pierwszy element */
+    }
+    
+    /* PRZYCISK GŁÓWNY - całkowicie przepisany */
     .duzy-przycisk {
-        min-width: 90% !important; /* Prawie cała szerokość ekranu */
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        min-width: 90% !important;
         width: 90% !important;
-        padding: 25px 30px !important; /* Mniejszy padding */
-        font-size: 1.4rem !important; /* Mniejsza czcionka */
-        letter-spacing: 1px !important; /* Mniejsze odstępy liter */
-        flex-direction: column; /* Tekst i ikona w kolumnie */
-        gap: 10px !important;
-        transform: translate(-50%, -50%) !important; /* Usuń dodatkowe transformacje */
+        max-width: 400px;
+        padding: 20px 30px !important;
+        font-size: 1.2rem !important;
+        letter-spacing: 1px !important;
+        margin: 20px auto !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        order: 2; /* Drugi element */
+        
+        /* Reset hover dla mobile */
+        transform: none !important;
+        padding: 20px 30px !important;
     }
     
     .duzy-przycisk:hover {
-        transform: translate(-50%, -50%) scale(1.05) !important; /* Prostszy efekt hover */
-        padding: 27px 33px !important;
-        letter-spacing: 2px !important;
+        transform: scale(1.03) !important;
+        padding: 22px 32px !important;
     }
     
-    .duzy-przycisk .ikona {
-        font-size: 1.4rem; /* Mniejsza ikona */
+    /* TEKST POD PRZYCISKIEM */
+    .zawartosc p {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        font-size: 1rem !important;
+        text-align: center;
+        padding: 0 15px;
+        margin: 20px 0 30px 0 !important;
+        width: 100%;
+        order: 3; /* Trzeci element */
     }
     
     /* KARTY - jedna pod drugą */
     .karty-container {
-        flex-direction: column; /* Ułóż karty w kolumnie */
-        align-items: center; /* Wyśrodkuj */
-        gap: 20px; /* Mniejsze odstępy */
-        margin: 30px 0; /* Mniejszy margines */
+        position: relative !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        margin: 30px 0 !important;
+        width: 100%;
+        order: 4; /* Czwarty element */
     }
     
     .karta {
-        width: 90% !important; /* Karta zajmuje większość szerokości */
-        padding: 25px 20px; /* Mniejszy padding wewnętrzny */
-        margin: 0 auto; /* Wyśrodkowanie */
+        width: 90% !important;
+        max-width: 350px;
+        padding: 25px 20px;
+        margin: 0 auto;
+        position: relative !important;
     }
     
-    /* TEKST GŁÓWNY - popraw czytelność */
-    .zawartosc h2 {
-        font-size: 1.8rem !important; /* Mniejszy nagłówek */
-        padding: 0 15px; /* Padding po bokach */
-        text-align: center;
+    /* ZDJĘCIA POZYCJONOWANE - przerób na relative */
+    .lewy-dolny, .prawy-dolny, .nad-przyciskiem {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 80px !important;
+        height: 80px !important;
+        margin: 15px !important;
+        display: inline-block;
+        transform: none !important;
     }
     
-    .zawartosc p {
-        font-size: 1rem; /* Mniejszy tekst */
-        padding: 0 15px;
-        text-align: center;
+    /* Kontener dla zdjęć dekoracyjnych */
+    .zdjecia-dekoracyjne {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 20px 0;
+        order: 5; /* Piąty element */
+        width: 100%;
     }
     
-    /* PRZYCISK POWROTU - większy na dotyk */
+    /* TŁO - poprawa */
+    body::before,
+    body::after {
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: scroll !important; /* Fixed nie działa dobrze na mobile */
+    }
+    
+    /* PRZYCISK POWROTU */
     .maly-przycisk {
-        padding: 15px 20px; /* Większy obszar dotyku */
-        font-size: 1rem;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1000;
+        padding: 12px 20px;
+        font-size: 0.9rem;
     }
 }
 
@@ -423,15 +530,24 @@ p {
 /* MAŁY TELEFON (max-width: 480px) */
 /* ============================== */
 @media (max-width: 480px) {
-    .duzy-przycisk {
-        font-size: 1.2rem !important;
-        padding: 20px 25px !important;
-        min-width: 85% !important;
-        border-radius: 60px; /* Zaokrąglenie dopasowane do rozmiaru */
+    .mobile-container {
+        padding: 15px 10px;
     }
     
-    .duzy-przycisk .tekst-przycisku {
-        font-size: 1.1rem; /* Tekst w przycisku */
+    .duzy-przycisk {
+        font-size: 1.1rem !important;
+        padding: 18px 25px !important;
+        min-width: 85% !important;
+    }
+    
+    .zawartosc h2 {
+        font-size: 1.5rem !important;
+        margin: 15px 0 20px 0 !important;
+    }
+    
+    .zawartosc p {
+        font-size: 0.95rem !important;
+        margin: 15px 0 25px 0 !important;
     }
     
     .karta {
@@ -439,14 +555,36 @@ p {
         padding: 20px 15px;
     }
     
-    .zawartosc h2 {
-        font-size: 1.5rem !important;
-        margin-bottom: 15px;
-    }
-    
-    /* Jeśli masz zdjęcia pozycjonowane absolutnie - zmniejsz je */
     .lewy-dolny, .prawy-dolny, .nad-przyciskiem {
         width: 60px !important;
         height: 60px !important;
+        margin: 10px !important;
+    }
+    
+    /* Ukryj jedno zdjęcie jeśli za dużo */
+    .nad-przyciskiem {
+        display: none;
+    }
+}
+
+/* ============================== */
+/* DODATKOWE FIXY SPECJALNE */
+/* ============================== */
+@media (max-width: 768px) {
+    /* Jeśli masz element z klasą .container - daj mu max-width */
+    .container, .zawartosc, section, main {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Reset wszystkich transformacji które mogą przeszkadzać */
+    *[style*="transform"]:not(.duzy-przycisk):not(.maly-przycisk) {
+        transform: none !important;
+    }
+    
+    /* Upewnij się że nic nie wychodzi poza ekran */
+    img, .karta, .duzy-przycisk {
+        max-width: 100% !important;
+        height: auto !important;
     }
 }

@@ -75,7 +75,7 @@ body {
 
 .opis {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
     position: fixed;
     top: 10%;
     right: 36%;
@@ -494,6 +494,52 @@ body {
         margin: 15px !important;
         display: inline-block;
         transform: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    * ZWIĘKSZ ZDJĘCIA */
+    .lewy-dolny, .prawy-dolny {
+        width: 120px !important;
+        height: 120px !important;
+    }
+    
+    .nad-przyciskiem {
+        width: 140px !important;
+        height: 140px !important;
+    }
+    
+    /* USTAW ZDJĘCIA NA SWOJE MIEJSCA */
+    .lewy-dolny {
+        position: fixed !important;
+        bottom: 30px !important;
+        left: 20px !important;
+        top: auto !important;
+        margin: 0 !important;
+    }
+    
+    .prawy-dolny {
+        position: fixed !important;
+        bottom: 30px !important;
+        right: 20px !important;
+        top: auto !important;
+        margin: 0 !important;
+    }
+    
+    .nad-przyciskiem {
+        position: absolute !important;
+        top: 100px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important;
+    }
+    
+    /* TEKST NAD PRZYCISKIEM - popraw pozycję */
+    .zawartosc h1 {
+        position: relative !important;
+        margin-top: 40px !important;
+        margin-bottom: 150px !important; /* Zwiększ aby zrobić miejsce na zdjęcie nad przyciskiem */
     }
     
     /* Kontener dla zdjęć dekoracyjnych */

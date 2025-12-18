@@ -380,117 +380,6 @@ body {
 }
 
 /* ============================== */
-/* TELEFON (max-width: 768px) */
-/* ============================== */
-@media (max-width: 768px) {
-    /* RESET LAYOUTU */
-    body {
-        padding: 0;
-        margin: 0;
-        width: 100vw;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        min-height: 100vh;
-        padding-top: 40px;
-    }
-    
-    /* TEKST H1 - biały, mniejszy, na samej górze */
-    .zawartosc h1 {
-        color: white !important;
-        font-size: 1.5rem !important;
-        text-align: center;
-        margin: 10px 0 30px 0 !important;
-        padding: 0 20px;
-        width: 100%;
-        font-weight: normal;
-    }
-    
-    /* ZDJĘCIA - duże, bez obramowania */
-    .zdjecia-dekoracyjne {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        margin: 0 0 30px 0;
-    }
-    
-    .nad-przyciskiem {
-        width: 200px !important;
-        height: 200px !important;
-        object-fit: contain !important;
-        margin-bottom: 25px !important;
-        border: none !important;
-        display: block !important;
-    }
-    
-    .lewy-dolny, .prawy-dolny {
-        width: 130px !important;
-        height: 130px !important;
-        object-fit: contain !important;
-        border: none !important;
-        display: inline-block !important;
-        margin: 0 10px !important;
-    }
-    
-    /* PRZYCISK - duży, na środku, dopasowany */
-    .duzy-przycisk {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        min-width: 85% !important;
-        width: 85% !important;
-        max-width: 400px;
-        padding: 22px 35px !important;
-        font-size: 1.3rem !important;
-        letter-spacing: 1px !important;
-        margin: 0 auto 40px auto !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        border-radius: 80px;
-        
-        /* Reset hover dla mobile */
-        transform: none !important;
-        padding: 22px 35px !important;
-    }
-    
-    .duzy-przycisk:hover {
-        transform: scale(1.03) !important;
-        padding: 24px 37px !important;
-    }
-    
-    /* Pozostałe elementy */
-    .maly-przycisk {
-        position: fixed;
-        top: 15px;
-        left: 15px;
-        z-index: 1000;
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-    
-    .karty-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        margin: 30px 0 !important;
-        width: 100%;
-    }
-    
-    .karta {
-        width: 90% !important;
-        max-width: 350px;
-        padding: 25px 20px;
-        margin: 0 auto;
-    }
-}
-
-/* ============================== */
 /* MAŁY TELEFON (max-width: 480px) */
 /* ============================== */
 @media (max-width: 480px) {
@@ -548,3 +437,69 @@ body {
     }
 }
 
+/* ========== OSTATNIE POPRAWKI ========== */
+@media (max-width: 768px) {
+    /* TEKST H1 - biały, mały, na górze */
+    .zawartosc h1 {
+        color: white !important;
+        font-size: 1.4rem !important;
+        text-align: center;
+        margin: 20px 0 25px 0 !important;
+        padding: 0 15px;
+        width: 100%;
+        font-weight: normal;
+    }
+    
+    /* ZDJĘCIA - duże, bez obramowania */
+    .zdjecia-dekoracyjne {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 0 30px 0 !important;
+    }
+    
+    .nad-przyciskiem {
+        width: 220px !important;
+        height: 220px !important;
+        object-fit: contain !important;
+        margin-bottom: 25px !important;
+        border: none !important;
+        display: block !important;
+    }
+    
+    .lewy-dolny, .prawy-dolny {
+        width: 150px !important;
+        height: 150px !important;
+        object-fit: contain !important;
+        border: none !important;
+        display: inline-block !important;
+        margin: 0 15px !important;
+    }
+    
+    /* PRZYCISK - duży, na środku */
+    .duzy-przycisk {
+        width: 90% !important;
+        max-width: 350px !important;
+        min-width: auto !important;
+        padding: 25px 30px !important;
+        font-size: 1.3rem !important;
+        margin: 0 auto 50px auto !important;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        text-align: center;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+    }
+    
+    .duzy-przycisk:hover {
+        transform: scale(1.02) !important;
+    }
+}

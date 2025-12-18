@@ -82,7 +82,7 @@ body {
     position: fixed;
     color: white;
     top: 32%;
-    left: 37%;
+    left: 22%;
 }
 
 h2 {
@@ -109,20 +109,22 @@ p {
 
 .lewy-dolny {
     position: absolute;  /* lub absolute */
-    bottom: 22%;
-    left: 27%;
-    width: 20%;
-    height: 30%;
+    bottom: 15%;
+    left: 20%;
+    width: 18vw;
+    height: 24vw;
+    transform: translate(-50%, 50%);
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
 }
 
 .prawy-dolny {
     position: absolute;  /* lub absolute */
-    bottom: 13%;
-    right: 35%;
-    width: 30%;
-    height: 20%;
+    bottom: 10%;
+    right: 15%;
+    width: 26vw;
+    height: 20vw;
+    transform: translate(20%, 20%);
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
 }
@@ -130,9 +132,10 @@ p {
 .nad-przyciskiem {
     position: absolute;  /* lub absolute */
     top: 16%;
-    right: 53%;
-    width: 40%;
-    height: 20%;
+    right: 50%;
+    width: 35vw;
+    height: 20vw;
+    transform: translate(50%, -5%);
     /*object-fit: cover;*/
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */

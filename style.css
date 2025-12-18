@@ -93,12 +93,10 @@ body {
     font-size: 1.2rem;
     position: absolute;
     color: white;
-    text-align: center;
-    width: 80%;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 50;
+    top: 40%;
+    left: 22%;
+    transform: translate(-5%, -490%);
+    z-index: 100;
 }
 
 h2 {
@@ -125,36 +123,36 @@ p {
 
 .lewy-dolny {
     position: absolute;  /* lub absolute */
-    bottom: 22%;
+    bottom: 5%;
     left: 15%;
-    width: 20vw;
-    height: 25vw;
+    width: 23vw;
+    height: 27vw;
     transform: translate(-50%, 50%);
     z-index: 100;  /* na wierzchu innych elementów */
-    /*transition: all 0.3s ease;*/ /* płynna zmiana przy resize */
+    transition: all 0.3s ease; /* płynna zmiana przy resize */
 }
 
 .prawy-dolny {
     position: absolute;  /* lub absolute */
-    bottom: 22%;
-    right: 15%;
-    width: 20vw;
-    height: 25vw;
-    transform: translate(50%, 50%);
+    bottom: 10%;
+    right: 5%;
+    width: 34vw;
+    height: 24vw;
+    transform: translate(20%, 20%);
     z-index: 100;  /* na wierzchu innych elementów */
-    /*transition: all 0.3s ease;*/ /* płynna zmiana przy resize */
+    transition: all 0.3s ease; /* płynna zmiana przy resize */
 }
 
 .nad-przyciskiem {
     position: absolute;  /* lub absolute */
-    top: 20%;
-    left: 50%;
-    width: 25vw;
-    height: 25vw;
-    transform: translateX(-50%);
+    top: 5%;
+    right: 25%;
+    width: 45vw;
+    height: 20vw;
+    transform: translate(50%, -5%);
     /*object-fit: cover;*/
     z-index: 100;  /* na wierzchu innych elementów */
-    /*transition: all 0.3s ease;*/ /* płynna zmiana przy resize */
+    transition: all 0.3s ease; /* płynna zmiana przy resize */
 }
 
 /* ŚNIEŻKI */

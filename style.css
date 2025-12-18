@@ -131,6 +131,7 @@ p {
     transform: translate(-50%, 50%);
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
+    pointer-events: none;
 }
 
 .prawy-dolny {
@@ -142,6 +143,7 @@ p {
     transform: translate(20%, 20%);
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
+    pointer-events: none;
 }
 
 .nad-przyciskiem {
@@ -155,6 +157,7 @@ p {
     object-fit: cover;
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
+    pointer-events: none;
 }
 
 .zdjecia-dekoracyjne {

@@ -6,7 +6,6 @@
 
 html {
     font-size: 16px; /* bazowy rozmiar dla rem */
-    overflow-x: hidden;
 }
 
 body {
@@ -14,8 +13,6 @@ body {
     font-size: 1rem;
     line-height: 1.5;
     overflow-x: hidden;
-    position: relative;
-    min-height: 100vh;
     background: linear-gradient(135deg, #27c304 0%, #0b7601 100%);
 }
 
@@ -36,26 +33,22 @@ body {
     width: 100%;
     z-index: 10;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    visibility: hidden !important;
-}
-
-#sekcja-startowa {
-    overflow: hidden;
 }
 
 #sekcja-druga {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(135deg, #27c304 0%, #0b7601 100%);
     z-index: 20;
-    overflow-y: scroll;
+    overflow-y: auto;
     
     /* ZMIANA: translateY(-100vh) zamiast translateY(100vh) */
     /* -100vh = 100% powyżej ekranu (nad) */
+    transform: translateY(-100vh);
     opacity: 0;
-    visibility: hidden;
     transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1),
                 opacity 0.8s ease;
 }
@@ -64,17 +57,11 @@ body {
 #sekcja-druga.pokazana {
     transform: translateY(0) !important; /* zsuwa się w dół do widocznej pozycji */
     opacity: 1 !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-overflow-scrolling: touch !important;
 }
 
 #sekcja-startowa.ukryta {
     transform: translateY(100vh) !important; /* zjeżdża w dół */
     opacity: 0 !important;
-    visibility: hidden !important;
 }
 
 /* KONTEJNER */
@@ -88,14 +75,11 @@ body {
 
 .opis {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     position: fixed;
-    display: flex;
+    top: 10%;
+    right: 36%;
     color: white;
-    top: 40%;
-    left: 22%;
-    transform: translate(-5%, -490%);
-    z-index: 100;
 }
 
 h2 {
@@ -110,58 +94,41 @@ p {
     color: white;
 }
 
-.zawartosc h1 {
-    color: white !important;
-    font-size: 1.4rem !important;
-    text-align: center;
-    margin: 20px 0 25px 0 !important;
-    padding: 0 15px;
-    width: 100%;
-    font-weight: normal;
-    }
-
 .lewy-dolny {
-    position: absolute;  /* lub absolute */
-    bottom: 5%;
-    left: 15%;
-    width: 23vw;
-    height: 27vw;
-    z-index: 100;  /* na wierzchu innych elementów */
-    transition: all 0.3s ease; /* płynna zmiana przy resize */
-    pointer-events: none;
-}
-
-.prawy-dolny {
-    position: absolute;  /* lub absolute */
-    bottom: 10%;
-    right: 5%;
-    width: 34vw;
-    height: 24vw;
-    z-index: 100;  /* na wierzchu innych elementów */
-    transition: all 0.3s ease; /* płynna zmiana przy resize */
-    pointer-events: none;
-}
-
-.nad-przyciskiem {
-    position: absolute; /* lub absolute */
-    display: flex;
-    top: 5%;
-    right: 25%;
-    width: 45vw;
-    height: 20vw;
+    position: fixed;  /* lub absolute */
+    bottom: 22%;
+    left: 27%;
+    width: clamp(70px, 9vw, 130px);
+    height: clamp(70px, 9vw, 130px);
+    border-radius: 50%;
     object-fit: cover;
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
-    pointer-events: none;
 }
 
-.zdjecia-dekoracyjne {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    margin: 0 0 30px 0 !important;
-    }
+.prawy-dolny {
+    position: fixed;  /* lub absolute */
+    bottom: 13%;
+    right: 35%;
+    width: clamp(70px, 9vw, 130px);
+    height: clamp(70px, 9vw, 130px);
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 100;  /* na wierzchu innych elementów */
+    transition: all 0.3s ease; /* płynna zmiana przy resize */
+}
+
+.nad-przyciskiem {
+    position: fixed;  /* lub absolute */
+    top: 16%;
+    right: 53%;
+    width: clamp(60px, 7vw, 110px);
+    height: clamp(60px, 7vw, 110px);
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 100;  /* na wierzchu innych elementów */
+    transition: all 0.3s ease; /* płynna zmiana przy resize */
+}
 
 /* ŚNIEŻKI */
         .sniezka {
@@ -196,9 +163,9 @@ p {
 /* DUŻY PRZYCISK */
 .duzy-przycisk {
     /* POWIĘKSZENIE */
-    padding: 25px 60px; /* Było: 35px 100px */
-    font-size: 1.8rem; /* Było: 2.2rem */
-    min-width: 400px; /* Było: 500px */
+    padding: 35px 100px;
+    font-size: 2.2rem;
+    min-width: 500px;
     
     /* NOWA CZCIONKA */
     font-family: 'Montserrat', sans-serif;
@@ -232,6 +199,12 @@ p {
     /* TRANSITION DLA HOVER */
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     
+    /* POZYCJONOWANIE - wycentruj */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
     /* RESZTA */
     overflow: hidden;
     z-index: 2;
@@ -254,7 +227,7 @@ p {
 /* Efekt hover */
 .duzy-przycisk:hover {
     transform: translate(-50%, -50%) scale(1.15) translateY(-10px);
-    padding: 28px 65px; /* Było: 40px 110px */
+    padding: 40px 110px;
     box-shadow: 
         0 30px 70px rgba(255, 126, 95, 0.7),
         inset 0 -8px 0 rgba(0, 0, 0, 0.2),
@@ -326,18 +299,11 @@ p {
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s;
     backdrop-filter: blur(10px);
-    z-index: 1001;
-    /*pointer-events: auto;*/
 }
 
 .maly-przycisk:hover {
     background: rgba(255,255,255,0.2);
     transform: translateX(-5px);
-}
-
-#sekcja-druga.pokazana *:not(.maly-przycisk) {
-    /*pointer-events: auto !important;*/
-    overflow-y: auto !important;
 }
 
 .karty-container {
@@ -383,214 +349,104 @@ p {
     margin-bottom: 20px;
 }
 
-.duzy-przycisk {
-    pointer-events: auto !important;
-}
-
-.zdjecia-dekoracyjne img {
-    pointer-events: none !important; /* obrazki nie blokują kliknięć */
-}
-
-@media (max-width: 480px) {
-
-    .nad-przyciskiem {
-        position: absolute;
-        top: 5%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 55vw;
-        height: auto;
-    }
-
-    .lewy-dolny {
-        bottom: 5%;
-        left: 5%;
-        width: 35vw;
-        height: auto;
-    }
-
-    .prawy-dolny {
-        bottom: 5%;
-        right: 5%;
-        width: 38vw;
-        height: auto;
-    }
-
+/* TABLET (max-width: 1024px) */
+/* ============================== */
+@media (max-width: 1024px) {
     .duzy-przycisk {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        min-width: 70vw !important;
-        padding: 20px;
-        font-size: 1.4rem;
+        min-width: 400px;
+        padding: 30px 80px;
+        font-size: 1.8rem;
     }
 }
 
+/* ============================== */
+/* TELEFON (max-width: 768px) */
+/* ============================== */
 @media (max-width: 768px) {
-
-    #sekcja-startowa {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        text-align: center;
-        padding-top: 20px;
-        position: relative;
-    }
-
-    .nad-przyciskiem {
-        position: relative !important;
-        width: 60vw !important;
-        height: auto !important;
-        margin: 0 auto 10px auto !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        pointer-events: none;
-    }
-
-    .opis {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        margin: 5px auto 10px auto !important;
-        font-size: 1.2rem !important;
-        text-align: center !important;
-        width: 90%;
-    }
-
+    /* PRZYCISK GŁÓWNY - dopasuj do ekranu */
     .duzy-przycisk {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        width: 75vw !important;
-        min-width: auto !important;
-        margin: 15px auto !important;
-        padding: 20px !important;
-        font-size: 1.3rem !important;
-        display: block;
+        min-width: 90% !important; /* Prawie cała szerokość ekranu */
+        width: 90% !important;
+        padding: 25px 30px !important; /* Mniejszy padding */
+        font-size: 1.4rem !important; /* Mniejsza czcionka */
+        letter-spacing: 1px !important; /* Mniejsze odstępy liter */
+        flex-direction: column; /* Tekst i ikona w kolumnie */
+        gap: 10px !important;
+        transform: translate(-50%, -50%) !important; /* Usuń dodatkowe transformacje */
     }
-
-    .lewy-dolny,
-    .prawy-dolny {
-        position: absolute;
-        bottom: 3%;
-        width: 30vw !important;
-        height: auto !important;
+    
+    .duzy-przycisk:hover {
+        transform: translate(-50%, -50%) scale(1.05) !important; /* Prostszy efekt hover */
+        padding: 27px 33px !important;
+        letter-spacing: 2px !important;
     }
-
-    .lewy-dolny {
-        left: 3%;
+    
+    .duzy-przycisk .ikona {
+        font-size: 1.4rem; /* Mniejsza ikona */
     }
-
-    .prawy-dolny {
-        right: 3%;
+    
+    /* KARTY - jedna pod drugą */
+    .karty-container {
+        flex-direction: column; /* Ułóż karty w kolumnie */
+        align-items: center; /* Wyśrodkuj */
+        gap: 20px; /* Mniejsze odstępy */
+        margin: 30px 0; /* Mniejszy margines */
+    }
+    
+    .karta {
+        width: 90% !important; /* Karta zajmuje większość szerokości */
+        padding: 25px 20px; /* Mniejszy padding wewnętrzny */
+        margin: 0 auto; /* Wyśrodkowanie */
+    }
+    
+    /* TEKST GŁÓWNY - popraw czytelność */
+    .zawartosc h2 {
+        font-size: 1.8rem !important; /* Mniejszy nagłówek */
+        padding: 0 15px; /* Padding po bokach */
+        text-align: center;
+    }
+    
+    .zawartosc p {
+        font-size: 1rem; /* Mniejszy tekst */
+        padding: 0 15px;
+        text-align: center;
+    }
+    
+    /* PRZYCISK POWROTU - większy na dotyk */
+    .maly-przycisk {
+        padding: 15px 20px; /* Większy obszar dotyku */
+        font-size: 1rem;
     }
 }
 
-#sekcja-druga {
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important; /* płynny scroll na iOS */
-    height: 100vh; 
+/* ============================== */
+/* MAŁY TELEFON (max-width: 480px) */
+/* ============================== */
+@media (max-width: 480px) {
+    .duzy-przycisk {
+        font-size: 1.2rem !important;
+        padding: 20px 25px !important;
+        min-width: 85% !important;
+        border-radius: 60px; /* Zaokrąglenie dopasowane do rozmiaru */
+    }
+    
+    .duzy-przycisk .tekst-przycisku {
+        font-size: 1.1rem; /* Tekst w przycisku */
+    }
+    
+    .karta {
+        width: 95% !important;
+        padding: 20px 15px;
+    }
+    
+    .zawartosc h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 15px;
+    }
+    
+    /* Jeśli masz zdjęcia pozycjonowane absolutnie - zmniejsz je */
+    .lewy-dolny, .prawy-dolny, .nad-przyciskiem {
+        width: 60px !important;
+        height: 60px !important;
+    }
 }
-
-#sekcja-druga.ukryta {
-    pointer-events: none;
-}
-
-/* po pokazaniu sekcji */
-#sekcja-druga.pokazana {
-    pointer-events: auto;
-    overflow-y: auto;
-}
-
-/* ukryta sekcja */
-.ukryta {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(100vh);
-}
-
-/* widoczna sekcja */
-.pokazana {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
-}
-
-#sekcja-startowa {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 100vh;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    overflow: hidden;
-}
-
-.nad-przyciskiem {
-    position: relative !important;
-    width: 55vw !important;
-    max-width: 350px;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    pointer-events: none;
-}
-
-.opis {
-    position: relative !important;
-    margin-bottom: 1rem;
-    transform: none !important;
-    text-align: center !important;
-    font-size: 1.25rem;
-    width: 90%;
-}
-
-.duzy-przycisk {
-    position: relative !important;
-    transform: none !important;
-    left: unset !important;
-    top: unset !important;
-    margin: 0 auto 1rem auto;
-    width: 75vw;
-    max-width: 350px;
-    padding: 18px;
-}
-
-.lewy-dolny,
-.prawy-dolny {
-    position: absolute;
-    bottom: 3%;
-    width: 30vw !important;
-    max-width: 150px;
-    height: auto !important;
-}
-
-.lewy-dolny {
-    left: 5%;
-}
-
-.prawy-dolny {
-    right: 5%;
-}
-
-#sekcja-druga {
-    height: 100vh;
-    overflow-y: auto !important;
-    padding-top: 4rem; /* odsunięcie treści pod przyciskiem */
-}
-
-.karty-container {
-    margin-top: 2rem;
-}
-
-.maly-przycisk {
-    z-index: 9999;
-    position: sticky; 
-    top: 1rem;
-}
-

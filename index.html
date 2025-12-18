@@ -166,11 +166,6 @@ document.addEventListener('touchmove', function(e) {
     e.stopPropagation();
 }, { passive: true });
 
-// Odblokuj wszystko
-document.querySelectorAll('*').forEach(el => {
-    el.style.pointerEvents = 'auto';
-    el.style.touchAction = 'auto';
-});
     </script>
     </div>
 </body>

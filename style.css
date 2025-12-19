@@ -38,6 +38,7 @@ body {
 
 #sekcja-druga {
     position: fixed;
+    padding-top: 950px;
     top: 0;
     left: 0;
     width: 100%;
@@ -76,10 +77,10 @@ body {
 
 .opis {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     position: fixed;
-    top: 10%;
-    right: 36%;
+    top: 38%;
+    right: 10%;
     color: white;
 }
 
@@ -104,8 +105,8 @@ h3 {
 
 .lewy-dolny {
     position: fixed;  /* lub absolute */
-    bottom: 22%;
-    left: 27%;
+    bottom: 30%;
+    left: 5%;
     width: clamp(70px, 9vw, 130px);
     height: clamp(70px, 9vw, 130px);
     border-radius: 50%;
@@ -116,7 +117,7 @@ h3 {
 
 .prawy-dolny {
     position: fixed;  /* lub absolute */
-    bottom: 13%;
+    bottom: 22%;
     right: 35%;
     width: clamp(70px, 9vw, 130px);
     height: clamp(70px, 9vw, 130px);
@@ -128,8 +129,8 @@ h3 {
 
 .nad-przyciskiem {
     position: fixed;  /* lub absolute */
-    top: 16%;
-    right: 53%;
+    top: 10%;
+    right: 71%;
     width: clamp(60px, 7vw, 110px);
     height: clamp(60px, 7vw, 110px);
     border-radius: 50%;
@@ -146,7 +147,7 @@ h3 {
             border-radius: 50%;
             opacity: 0.8;
             pointer-events: none; /* nie blokują kliknięć */
-            z-index: 1; /* pod przyciskiem */
+            z-index: -1; /* pod przyciskiem */
             animation: spadanie linear infinite;
         }
         
@@ -296,6 +297,8 @@ h3 {
 
 .maly-przycisk {
     position: fixed;
+    align-self: flex-start;
+    margin-bottom: 10px;
     top: 4%;
     left: 2%;
     padding: 12px 25px;
@@ -317,6 +320,7 @@ h3 {
 .karty-container {
     min-height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 40px;
     margin: 60px 0;
@@ -325,7 +329,7 @@ h3 {
 }
 
 .one {
-    padding-top: 250px;
+    top: 0;
 }
 
 .karta {
@@ -416,7 +420,7 @@ h3 {
     }
 
     .one {
-        padding-top: 60px;
+        padding-top: 40px;
     }
     
     /* TEKST GŁÓWNY - popraw czytelność */

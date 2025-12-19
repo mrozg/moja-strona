@@ -79,7 +79,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     position: fixed;
-    top: 38%;
+    top: 40%;
     right: 10%;
     color: white;
 }
@@ -105,8 +105,8 @@ h3 {
 
 .lewy-dolny {
     position: fixed;  /* lub absolute */
-    bottom: 30%;
-    left: 5%;
+    bottom: 28%;
+    left: 4%;
     width: clamp(70px, 9vw, 130px);
     height: clamp(70px, 9vw, 130px);
     border-radius: 50%;
@@ -117,8 +117,8 @@ h3 {
 
 .prawy-dolny {
     position: fixed;  /* lub absolute */
-    bottom: 22%;
-    right: 35%;
+    bottom: 20%;
+    right: 38%;
     width: clamp(70px, 9vw, 130px);
     height: clamp(70px, 9vw, 130px);
     border-radius: 50%;
@@ -129,7 +129,7 @@ h3 {
 
 .nad-przyciskiem {
     position: fixed;  /* lub absolute */
-    top: 10%;
+    top: 15%;
     right: 71%;
     width: clamp(60px, 7vw, 110px);
     height: clamp(60px, 7vw, 110px);
@@ -141,7 +141,7 @@ h3 {
 
 /* ŚNIEŻKI */
         .sniezka {
-            position: fixed;
+            position: absolute;
             top: -50px;
             background: white;
             border-radius: 50%;

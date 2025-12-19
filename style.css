@@ -325,7 +325,7 @@ h3 {
 }
 
 .one {
-    padding-top: 40vh;
+    padding-top: 250px;
 }
 
 .karta {
@@ -413,6 +413,10 @@ h3 {
         width: 90% !important; /* Karta zajmuje większość szerokości */
         padding: 25px 20px; /* Mniejszy padding wewnętrzny */
         margin: 0 auto; /* Wyśrodkowanie */
+    }
+
+    .one {
+        padding-top: 60px;
     }
     
     /* TEKST GŁÓWNY - popraw czytelność */

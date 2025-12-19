@@ -101,10 +101,13 @@ h3 {
     font-size: 1.4rem;
     color: white;
     position: relative;
+    flex-shrink: 0;
+    margin-top: auto;
+    padding-bottom: 30px;
 }
 
 .lewy-dolny {
-    position: fixed;  /* lub absolute */
+    position: absolute;  /* lub absolute */
     bottom: 28%;
     left: 4%;
     width: clamp(70px, 9vw, 130px);
@@ -116,7 +119,7 @@ h3 {
 }
 
 .prawy-dolny {
-    position: fixed;  /* lub absolute */
+    position: absolute;  /* lub absolute */
     bottom: 20%;
     right: 38%;
     width: clamp(70px, 9vw, 130px);

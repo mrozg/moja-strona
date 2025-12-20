@@ -6,6 +6,8 @@
 
 html {
     font-size: 16px; /* bazowy rozmiar dla rem */
+    background: linear-gradient(135deg, #27c304 0%, #0b7601 100%);
+    height: 100%;
 }
 
 body {
@@ -19,18 +21,22 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    height: 100dvh;
     background: linear-gradient(135deg, #27c304 0%, #0b7601 100%);
 }
 
 .sekcja {
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 20px;
+    text-align: center;
     position: relative;
     transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
     overflow: hidden;
@@ -61,8 +67,8 @@ body {
     height: auto;
     background: linear-gradient(135deg, #27c304 0%, #0b7601 100%);
     z-index: 20;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
+    padding: 20px;
     
     /* ZMIANA: translateY(-100vh) zamiast translateY(100vh) */
     /* -100vh = 100% powyżej ekranu (nad) */
@@ -101,6 +107,7 @@ body {
     color: white;
     flex-shrink: 0;
     display: block;
+    margin-bottom: 20px;
 }
 
 h2 {
@@ -128,28 +135,38 @@ h3 {
 
 .lewy-dolny {
     position: absolute;  /* lub absolute */
-    bottom: 30%;
+    bottom: 10%;
     left: 4%;
-    width: clamp(70px, 9vw, 130px);
-    height: clamp(70px, 9vw, 130px);
+    /*width: clamp(70px, 9vw, 130px);
+    height: clamp(70px, 9vw, 130px);*/
     border-radius: 50%;
     object-fit: cover;
-    max-width: 100%;
-    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-height: 25vh;
+    width: auto;
+    max-width: 45%;
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
 }
 
 .prawy-dolny {
     position: absolute;  /* lub absolute */
-    bottom: 22%;
+    bottom: 12%;
     right: 38%;
-    width: clamp(70px, 9vw, 130px);
-    height: clamp(70px, 9vw, 130px);
+    /*width: clamp(70px, 9vw, 130px);
+    height: clamp(70px, 9vw, 130px);*/
     border-radius: 50%;
     object-fit: cover;
-    max-width: 100%;
-    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-height: 25vh;
+    width: auto;
+    max-width: 45%;
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
 }
@@ -157,13 +174,17 @@ h3 {
 .nad-przyciskiem {
     position: fixed;  /* lub absolute */
     top: 15%;
-    right: 71%;
+    /*right: 71%;
     width: clamp(60px, 7vw, 110px);
-    height: clamp(60px, 7vw, 110px);
+    height: clamp(60px, 7vw, 110px);*/
     border-radius: 50%;
     object-fit: cover;
-    max-width: 100%;
-    display: block;
+    max-width: 80%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
     z-index: 100;  /* na wierzchu innych elementów */
     transition: all 0.3s ease; /* płynna zmiana przy resize */
 }
@@ -180,7 +201,7 @@ h3 {
             border-radius: 50%;
             opacity: 0.8;
             pointer-events: none; /* nie blokują kliknięć */
-            z-index: -1; /* pod przyciskiem */
+            z-index: 0; /* pod przyciskiem */
             animation: spadanie linear infinite;
         }
         
@@ -208,6 +229,8 @@ h3 {
     padding: 35px 100px;
     font-size: 2.2rem;
     min-width: 500px;
+    margin-bottom: 20px;
+    margin-top: 370px;
     
     /* NOWA CZCIONKA */
     font-family: 'Montserrat', sans-serif;

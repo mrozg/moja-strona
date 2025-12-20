@@ -68,7 +68,7 @@ body {
     background: linear-gradient(135deg, #27c304 0%, #0b7601 100%);
     z-index: 20;
     overflow-y: auto;
-    padding: 20px;
+    padding: 30px;
     
     /* ZMIANA: translateY(-100vh) zamiast translateY(100vh) */
     /* -100vh = 100% powyżej ekranu (nad) */
@@ -106,7 +106,8 @@ body {
     right: 10% !important;
     color: white;
     flex-shrink: 0;
-    display: block;
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
 }
 

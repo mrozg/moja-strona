@@ -140,7 +140,7 @@ h3 {
 }
 
 .dolna-sekcja {
-    position: absolute; /* Lub relative, zależy od układu */
+    position: absolute !important; /* Lub relative, zależy od układu */
     bottom: 25px !important;
     left: 0;
     width: 100%;        /* Szerokość ekranu */
@@ -154,7 +154,7 @@ h3 {
 }
 
 .lewy-dolny {
-    position: absolute;
+    position: absolute !important;
     bottom: 0 !important;
     left: 0 !important;
     height: 40vh !important;
@@ -169,7 +169,7 @@ h3 {
 }
 
 .prawy-dolny {
-    position: absolute;
+    position: absolute !important;
     bottom: 0 !important;
     right: 0 !important;
     height: 40vh !important;

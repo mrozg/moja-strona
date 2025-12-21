@@ -154,7 +154,7 @@ h3 {
 }
 
 .lewy-dolny {
-    position: fixed;
+    position: absolute;
     bottom: 0 !important;
     left: 0 !important;
     height: 40vh !important;
@@ -169,7 +169,7 @@ h3 {
 }
 
 .prawy-dolny {
-    position: fixed;
+    position: absolute;
     bottom: 0 !important;
     right: 0 !important;
     height: 40vh !important;

@@ -42,7 +42,6 @@
             <button id="powrot-przycisk" class="maly-przycisk">
                 <i class="fas fa-arrow-left"></i> Powrót
             </button>
-
              <div class="karty-container one">
                 <div class="karta">
                     <div class="karta-obraz"></div>
@@ -50,13 +49,16 @@
                     <h2>Ho Ho Ho!</h2>
                     <p>Niech te Święta będą pełne ciepła, miłości i smaku - zarówno w sercu, jak i w kieliszku. Wesołych i radosnych chwil przy świątecznym stole!</p>
                 </div>
+                <div class="oplatek-container" onclick="przelamOplatek(this)">
+                <div id="zyczenia-tekst" class="zyczenia"></div>
+                <div class="polowka lewa"></div>
+                <div class="polowka prawa"></div>
+                <div class="instrukcja">Kliknij, aby przełamać opłatek</div>
+                </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="location.reload()" class="btn-again">Nowe życzenia</button>
+    </div>
         </div>
-        <div class="karty-container">
-            <div class="karta">
-                <p>jakis tekst</p>
-            </div>
-        </div>
-        <h3>"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"</h3>
      </section>
     <script>
     // TWORZENIE ŚNIEŻEK
@@ -167,6 +169,31 @@ window.addEventListener('load', function() {
     });
 });
 
+// --- BAZA ŻYCZEŃ ---
+    const listaZyczen = [
+        "Zdrowych, spokojnych Świąt i dużo miłości!",
+        "Niech te Święta przyniosą Ci wiele radości i odpoczynku.",
+        "Spełnienia marzeń w Nowym Roku i samych sukcesów!",
+        "Dużo zdrowia i szczęścia.",
+        "Smacznego karpia i góry prezentów pod choinką!",
+        "Błogosławieństwa Bożego i ciepła w sercu na każdy dzień."
+    ];
+
+    // Funkcja losująca (uruchamia się od razu)
+    const wybraneZyczenie = listaZyczen[Math.floor(Math.random() * listaZyczen.length)];
+    document.getElementById('zyczenia-tekst').innerText = wybraneZyczenie;
+
+    // Funkcja łamiąca opłatek
+    function przelamOplatek(element) {
+        // Dodajemy klasę "zlamany", która uruchamia animację w CSS
+        if (!element.classList.contains('zlamany')) {
+            element.classList.add('zlamany');
+            
+            // Opcjonalnie: Tu można dodać dźwięk łamania (jeśli masz plik mp3)
+            // var audio = new Audio('crack.mp3');
+            // audio.play();
+        }
+    }
 
 </script>
 </body>

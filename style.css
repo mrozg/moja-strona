@@ -60,15 +60,18 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     top: 0;
     left: 0;
-    width: 100%;
-    min-height: 100vh;
-    height: auto;
+    width: 100% !important;
+    /*min-height: 100vh;*/
+    height: 100vh;
     background: linear-gradient(135deg, #27c304 0%, #0b7601 100%);
     z-index: 20;
     overflow-y: auto;
-    padding: 30px;
+    -webkit-overflow-scrolling: touch;
+    /*padding: 30px;*/
+    padding: 30px 20px 100px 20px;
     
     /* ZMIANA: translateY(-100vh) zamiast translateY(100vh) */
     /* -100vh = 100% powyżej ekranu (nad) */
@@ -426,6 +429,126 @@ h3 {
     color: #ff7e5f;
     margin-bottom: 20px;
 }
+
+/* Kontener trzymający całość */
+.oplatek-container {
+    position: relative !important;
+    width: 300px !important;  /* Szerokość opłatka */
+    height: 280px !important; /* Wysokość opłatka */
+    margin-top: 40px auto !important;
+    margin-bottom: 10px auto;
+    background-color: transparent;
+    z-index: 10;
+    cursor: pointer;
+    overflow: hidden !important; /* Żeby uciekające połówki nie robiły paska przewijania */
+    flex-shrink: 0 !important;
+    flex-grow: 0;
+}
+
+/* Styl tekstu z życzeniami (pod spodem) */
+.zyczenia {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 75px !important;
+    box-sizing: border-box !important;
+    overflow: hidden;
+    text-align: center !important;
+    font-family: 'Georgia', serif; /* Elegancka czcionka */
+    font-size: 15px !important;
+    line-height: 1.4;
+    color: #fff; /* Biały tekst */
+    text-shadow: 1px 1px 2px black; /* Cień, żeby był czytelny na tle */
+    word-wrap: break-word !important; 
+    overflow-wrap: break-word;
+    z-index: 1; /* Najniższa warstwa */
+}
+
+/* Wspólny styl dla obu połówek opłatka */
+.polowka {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50.5%;
+    /* TUTAJ WKLEJ LINK DO SWOJEGO ZDJĘCIA OPŁATKA */
+    background-image: url('oplatek.png'); 
+    background-size: 200% 110%; /* Rozciągamy tło na szerokość obu połówek */
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 1.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Płynna animacja */
+    z-index: 2; /* Przykrywa życzenia */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border: none !important;
+}
+
+/* Ustawienia lewej połówki */
+.lewa {
+    left: -1px;
+    background-position: left center; /* Pokazuje lewą część zdjęcia */
+    border-right: 1px solid rgba(0,0,0,0.1); /* Delikatna linia cięcia */
+    transform-origin: bottom left;
+    clip-path: inset(0 0 0 0);
+}
+
+/* Ustawienia prawej połówki */
+.prawa {
+    right: -1px;
+    background-position: right center; /* Pokazuje prawą część zdjęcia */
+    transform-origin: bottom right;
+    clip-path: inset(0 0 0 0);
+}
+
+/* Instrukcja na wierzchu */
+.instrukcja {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 3;
+    pointer-events: none; /* Żeby kliknięcie w napis też łamało opłatek */
+    transition: opacity 0.5s;
+    /*background-color: rgba(255,255,255,0.7);*/
+    padding: 2px 0;
+}
+
+/* --- KLASY AKTYWUJĄCE ANIMACJĘ --- */
+
+/* Kiedy opłatek jest złamany, instrukcja znika */
+.oplatek-container.zlamany .instrukcja {
+    opacity: 0;
+}
+
+/* Lewa połówka odjeżdża w lewo i obraca się */
+.oplatek-container.zlamany .lewa {
+    transform: translate(-50px, 10px) rotate(-15deg);
+    opacity: 0; /* Zanika */
+}
+
+/* Prawa połówka odjeżdża w prawo i obraca się */
+.oplatek-container.zlamany .prawa {
+    transform: translate(50px, 10px) rotate(15deg);
+    opacity: 0; /* Zanika */
+}
+
+/* Styl przycisku */
+.btn-again {
+    padding: 10px 20px;
+    background-color: white;
+    color: green;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 
 /* TABLET (max-width: 1024px) */
 /* ============================== */
